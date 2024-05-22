@@ -1,3 +1,43 @@
+/*  Karla font */
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200..800&display=swap');
+
+.karla-normal {
+  font-family: 'Karla', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.karla-bold {
+  font-family: 'Karla', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --light-green: hsl(148, 38%, 91%);
+  --green: hsl(169, 82%, 27%);
+  --red: hsl(0, 66%, 56%);
+  --white: hsl(0, 0%, 100%);
+  --medium-grey: hsl(186, 15%, 59%);
+  --dark-grey: hsl(187, 24%, 22%);
+}
+
+/*=============== BASE ===============*/
+body {
+  font-family: 'Karla', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .attribution {
   display: none;
 }
