@@ -33,7 +33,6 @@
 
 /*=============== IMAGE TEMPLATE ===============*/
 .background-img-wrapper {
-
   position: absolute;
   top: -2rem;
   left: 50%;
@@ -41,7 +40,7 @@
   width: 375px;
   height: 1138px;
   margin: 0 auto;
-  z-index:-1;
+  z-index: -1;
 }
 
 .background-img {
@@ -82,17 +81,22 @@ body {
   opacity: 0.6;
 }
 
-h1{
-  letter-spacing: -.5px;
-  margin-bottom:1.9rem;
+h1 {
+  letter-spacing: -0.5px;
+  margin-bottom: 1.9rem;
 }
 /*=============== FORM ===============*/
-.inputs{
-  display:flex;
+.inputs {
+  display: flex;
   flex-direction: column;
-  row-gap: .5rem;
+  row-gap: 0.5rem;
 }
 
+.first-name-input,
+.last-name-input {
+  border-radius: 0.5rem;
+  padding: 1rem 0.5rem;
+}
 /*=============== FOOTER ===============*/
 .attribution {
   display: none;
