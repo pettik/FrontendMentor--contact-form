@@ -89,14 +89,34 @@ h1 {
 .inputs {
   display: flex;
   flex-direction: column;
-  row-gap: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
+.inputs label{
+  margin-bottom: .5rem;
+}
+
+
+ span{
+  color: green;
+  font-weight: bold;
+  margin: 0 .5rem;
+}
+
+.inputs p{
+  margin-top: .15rem;
+}
+
+
 .first-name-input,
-.last-name-input {
+.last-name-input,
+.email-input {
   border-radius: 0.5rem;
   padding: 1rem 0.5rem;
+  outline:none;
 }
+
+
 /*=============== FOOTER ===============*/
 .attribution {
   display: none;
