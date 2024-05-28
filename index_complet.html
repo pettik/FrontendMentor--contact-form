@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <!--=============== FAVICON ===============-->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <!--=============== CSS  ===============-->
+    <style>
+      /*  Karla font */
+      @import url('https://fonts.googleapis.com/css2?family=Karla:wght@200..800&display=swap');
+
+      .karla-normal {
+        font-family: 'Karla', sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+      }
+      .karla-bold {
+        font-family: 'Karla', sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --light-green: hsl(148, 38%, 91%);
+        --green: hsl(169, 82%, 27%);
+        --red: hsl(0, 66%, 56%);
+        --white: hsl(0, 0%, 100%);
+        --medium-grey: hsl(186, 15%, 59%);
+        --dark-grey: hsl(187, 24%, 22%);
+      }
+
+      /*=============== IMAGE TEMPLATE ===============*/
+      .background-img-wrapper {
+        position: absolute;
+        top: -2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 375px;
+        height: 1138px;
+        margin: 0 auto;
+        z-index: -1;
+      }
+
+      .background-img {
+        width: 100%;
+        height: 100%;
+
+        background: url('../../design/mobile-design.jpg');
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      /* @media screen and (max-width: 365px) {
+  .background-img-wrapper {
+    display: none;
+  }
+}
+@media screen and (min-width: 380px) {
+  .background-img-wrapper {
+    display: none;
+  }
+} */
+
+      /*=============== BASE ===============*/
+      body {
+        position: relative;
+        font-family: 'Karla', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        background: var(--light-green);
+      }
+
+      .container {
+        background: var(--white);
+        max-width: 345px;
+        margin: 2rem auto;
+        padding: 1.5rem;
+
+        border-radius: 1rem;
+        opacity: 0.6;
+      }
+
+      h1 {
+        letter-spacing: -0.5px;
+        margin-bottom: 1.9rem;
+      }
+      /*=============== FORM ===============*/
+      .inputs {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0.4rem;
+      }
+
+      .inputs label {
+        margin-bottom: 0.5rem;
+      }
+
+      span {
+        color: green;
+        font-weight: bold;
+        margin: 0 0.5rem;
+      }
+
+      .inputs p {
+        margin-top: 0.15rem;
+      }
+
+      .first-name-input,
+      .last-name-input,
+      .email-input {
+        border-radius: 0.5rem;
+        padding: 1rem 0.5rem;
+        outline: none;
+      }
+
+      /*=============== FOOTER ===============*/
+      .attribution {
+        display: none;
+      }
+    </style>
+    <!--=============== JS  ===============-->
+    <script src="./assets/js/script.js" defer></script>
+    <!--=============== TITLE ===============-->
+    <title>Frontend Mentor | Contact form</title>
+  </head>
+  <body>
+    <div class="background-img-wrapper">
+      <div class="background-img"></div>
+    </div>
+    <main class="container">
+      <h1>Contact Us</h1>
+      <form action="#">
+        <div class="inputs first-name">
+          <label>First Name <span>*</span></label>
+          <input type="text" class="first-name-input" />
+          <p id="first-name-mess">This field is required</p>
+        </div>
+        <div class="inputs last-name">
+          <label>Last Name <span>*</span></label>
+          <input type="text" class="last-name-input" />
+          <p id="last-name-mess">This field is required</p>
+        </div>
+        <div class="inputs email">
+          <label>Email Address<span>*</span></label>
+          <input type="text" class="email-input" />
+          <p id="email-mess">
+            Please enter a valid email address | This field is required
+          </p>
+        </div>
+      </form>
+      Query Type General Enquiry Support Request Please select a query type
+      Message This field is required I consent to being contacted by the team To
+      submit this form, please consent to being contacted Submit Message Sent!
+      Thanks for completing the form. We'll be in touch soon!
+    </main>
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="https://github.com/pettik">Petr Bednarski</a>.
+    </footer>
+  </body>
+</html>

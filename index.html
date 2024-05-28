@@ -38,14 +38,48 @@
         <div class="inputs email">
           <label>Email Address<span>*</span></label>
           <input type="text" class="email-input" />
-          <p id="email-mess">Please enter a valid email address | This field is required </p>
+          <p id="email-mess">
+            Please enter a valid email address | This field is required
+          </p>
         </div>
+        <div class="inputs radio-group">
+          <label>Query Type <span>*</span></label>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="general-enquiry"
+              name="query-type"
+              value="general-enquiry"
+            />
+            <label for="general-enquiry">General Enquiry</label>
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="support-request"
+              name="query-type"
+              value="support-request"
+            />
+            <label for="support-request">Support Request</label>
+          </div>
+          <p id="query-type-mess">Please select a query type</p>
+        </div>
+        <div class="inputs message">
+          <label>Message <span>*</span></label>
+          <textarea class="message-input"></textarea>
+          <p id="message-mess">This field is required</p>
+        </div>
+        <div class="inputs consent">
+          <input type="checkbox" id="consent" />
+          <label for="consent"
+            >I consent to being contacted by the team <span>*</span></label
+          >
+          <p id="consent-mess">
+            To submit this form, please consent to being contacted
+          </p>
+        </div>
+        <button type="submit">Submit</button>
       </form>
-      Query
-      Type General Enquiry Support Request Please select a query type Message
-      This field is required I consent to being contacted by the team To submit
-      this form, please consent to being contacted Submit Message Sent! Thanks
-      for completing the form. We'll be in touch soon!
     </main>
     <footer class="attribution">
       Challenge by
