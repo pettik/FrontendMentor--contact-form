@@ -74,6 +74,10 @@ h1 {
   margin-bottom: 1.9rem;
 }
 
+.hidden{
+  visibility: hidden !important;
+}
+
 /*=============== FORM ===============*/
 .inputs {
   display: flex;
