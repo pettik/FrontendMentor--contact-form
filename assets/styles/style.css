@@ -75,18 +75,20 @@ h1 {
 }
 
 .hidden{
-  visibility: hidden !important;
+  visibility: hidden;
 }
 
 /*=============== FORM ===============*/
 .inputs {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.45rem;
 }
 
+.inputs.email{ margin-bottom: 0;}
+
 .inputs label {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.65rem;
 }
 
 span {
@@ -125,36 +127,66 @@ span {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
+  margin-top: -.85rem;
 }
 
 .radio-group label {
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin-bottom:1.2rem;
 }
 
 .radio-option {
   display: flex;
   align-items: center;
+
   margin-bottom: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.3rem;
   border: 1px solid var(--medium-grey);
   border-radius: 0.5rem;
   transition: border-color 0.3s, background-color 0.3s;
 }
 
 .radio-option input[type='radio'] {
-  margin-right: 0.5rem;
+  margin: 0 1rem;
 }
 
-.radio-option input[type='radio']:checked + label {
+.radio-option input[type='radio'] {
+  display: none;
+}
+
+.radio-option label::before {
+  content: "";
+  display: inline-block;
+  width: 20px; /* Dvojnásobek původní velikosti */
+  height: 20px; /* Dvojnásobek původní velikosti */
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--medium-grey);
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+
+
+
+.radio-option input[type='radio']:checked + label::before {
+  border-color: var(--green);
+  background-color: var(--light-green);
+}
+
+.radio-option.selected {
   background-color: var(--light-green);
   border-color: var(--green);
 }
 
-.radio-option label {
+
+.inputs.radio-group .radio-option label {
   flex: 1;
   cursor: pointer;
+  margin-bottom: 0;
+  padding: 0.62rem;
 }
+
+
 
 /*=============== FOOTER ===============*/
 .attribution {
