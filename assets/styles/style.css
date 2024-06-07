@@ -258,4 +258,10 @@ button {
   .container{
     max-width: 800px;
   }
+
+  .inputs {
+  
+  flex-direction: row;
+  
+  }
 }
