@@ -282,6 +282,20 @@ button {
   }
 
   .inputs {
-    flex-direction: row;
+    flex-direction: column;
+  }
+  form {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .inputs.email {
+    margin-top: -1rem;
+    grid-column: 1/-1;
+  }
+
+  .inputs.radio-group {
+    grid-column: 1/-1;
   }
 }
