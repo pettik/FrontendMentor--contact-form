@@ -156,6 +156,12 @@ span {
   position: relative;
 }
 
+.radio-options-box{
+  display:flex;
+  flex-direction: column;
+  row-gap: .5rem;
+}
+
 .radio-option input[type='radio'] {
   position: absolute;
   opacity: 0;
@@ -194,7 +200,7 @@ span {
 
 /* Inputs Message */
 .inputs.message {
-  margin-top: -0.75rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
