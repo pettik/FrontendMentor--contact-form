@@ -77,7 +77,7 @@ h1 {
 }
 
 .hidden {
-  visibility: hidden;
+  visibility: visible;
 }
 
 /*=============== FORM ===============*/
@@ -85,6 +85,10 @@ h1 {
   display: flex;
   flex-direction: column;
   margin-bottom: 0.45rem;
+}
+
+.inputs:focus{
+  border:1px solid var(--green);
 }
 
 .inputs.email {
@@ -211,6 +215,8 @@ span {
   margin-bottom: .15rem;
 }
 
+
+
 .consent-mess-main {
   display: flex;
   align-items: center;
@@ -287,7 +293,7 @@ button {
   }
   form {
     display: grid;
-    grid-gap: 1rem;
+    column-gap: 1rem;
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -325,6 +331,12 @@ button {
   .consent{    grid-column: 1/-1;
     margin-top: -1rem;
   }
+
+  .consent:hover,
+.consent label:hover
+.consent-mess-main:hover{
+  cursor: pointer;
+}
 
   button[type="submit"] {
     grid-column: 1/-1;
