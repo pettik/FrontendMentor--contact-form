@@ -77,7 +77,7 @@ h1 {
 }
 
 .hidden {
-  visibility: visible;
+  visibility: hidden;
 }
 
 /*=============== FORM ===============*/

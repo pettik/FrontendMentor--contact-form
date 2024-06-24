@@ -1,95 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <!-- displays site properly based on user's device -->
-      <!--=============== FAVICON ===============-->
-      <link
-         rel="icon"
-         type="image/png"
-         sizes="32x32"
-         href="./assets/images/favicon-32x32.png"
-         />
-      <!--=============== CSS  ===============-->
-      <link rel="stylesheet" href="./assets/styles/style.css" />
-      <!--=============== JS  ===============-->
-      <script src="./assets/js/script.js" defer></script>
-      <!--=============== TITLE ===============-->
-      <title>Frontend Mentor | Contact form</title>
-   </head>
-   <body>
-      <div class="background-img-wrapper">
-         <div class="background-img"></div>
-      </div>
-      <main class="container">
-         <h1>Contact Us</h1>
-         <form action="#">
-            <div class="inputs first-name">
-               <label>First Name <span>*</span></label>
-               <input type="text" class="first-name-input" />
-               <p class="hidden" id="first-name-mess">This field is required</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <!--=============== FAVICON ===============-->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <!--=============== CSS  ===============-->
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <!--=============== JS  ===============-->
+    <script src="./assets/js/script.js" defer></script>
+    <!--=============== TITLE ===============-->
+    <title>Frontend Mentor | Contact form</title>
+  </head>
+  <body>
+    <div class="background-img-wrapper">
+      <div class="background-img"></div>
+    </div>
+    <main class="container">
+      <h1>Contact Us</h1>
+      <form action="#">
+        <div class="inputs first-name">
+          <label>First Name <span>*</span></label>
+          <input type="text" class="first-name-input" />
+          <p class="hidden" id="first-name-mess">This field is required</p>
+        </div>
+        <div class="inputs last-name">
+          <label>Last Name <span>*</span></label>
+          <input type="text" class="last-name-input" />
+          <p class="hidden" id="last-name-mess">This field is required</p>
+        </div>
+        <div class="inputs email">
+          <label>Email Address<span>*</span></label>
+          <input type="text" class="email-input" />
+          <p class="hidden" id="email-mess">
+            Please enter a valid email address | This field is required
+          </p>
+        </div>
+        <div class="inputs radio-group">
+          <label>Query Type <span>*</span></label>
+          <div class="radio-options-box">
+            <div class="radio-option">
+              <input
+                type="radio"
+                id="general-enquiry"
+                name="query-type"
+                value="general-enquiry"
+              />
+              <label for="general-enquiry">General Enquiry</label>
             </div>
-            <div class="inputs last-name">
-               <label>Last Name <span>*</span></label>
-               <input type="text" class="last-name-input" />
-               <p class="hidden" id="last-name-mess">This field is required</p>
+            <div class="radio-option">
+              <input
+                type="radio"
+                id="support-request"
+                name="query-type"
+                value="support-request"
+              />
+              <label for="support-request">Support Request</label>
             </div>
-            <div class="inputs email">
-               <label>Email Address<span>*</span></label>
-               <input type="text" class="email-input" />
-               <p class="hidden" id="email-mess">
-                  Please enter a valid email address | This field is required
-               </p>
-            </div>
-            <div class="inputs radio-group">
-               <label>Query Type <span>*</span></label>
-               <div class="radio-options-box">
-               <div class="radio-option">
-                  <input
-                     type="radio"
-                     id="general-enquiry"
-                     name="query-type"
-                     value="general-enquiry"
-                     />
-                  <label for="general-enquiry">General Enquiry</label>
-               </div>
-               <div class="radio-option">
-                  <input
-                     type="radio"
-                     id="support-request"
-                     name="query-type"
-                     value="support-request"
-                     />
-                  <label for="support-request">Support Request</label>
-               </div>
-            </div>
-               <p class="hidden" id="query-type-mess">Please select a query type</p>
-            </div>
-            <div class="inputs message">
-               <label>Message <span>*</span></label>
-               <textarea class="message-input"></textarea>
-               <p class="hidden" id="message-mess">This field is required</p>
-            </div>
-            <div class="inputs consent">
-               <div class="consent-mess-main">
-                  <input type="checkbox" id="consent" />
-                  <label for="consent"
-                     >I consent to being contacted by the team <span>*</span></label
-                     >
-               </div>
-               <p class="hidden" id="consent-mess">
-                  To submit this form, please consent to being contacted
-               </p>
-            </div>
-            <button type="submit">Submit</button>
-         </form>
-      </main>
-      <footer class="attribution">
-         Challenge by
-         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-            >Frontend Mentor</a
-            >. Coded by <a href="https://github.com/pettik">Petr Bednarski</a>.
-      </footer>
-   </body>
+          </div>
+          <p class="hidden" id="query-type-mess">Please select a query type</p>
+        </div>
+        <div class="inputs message">
+          <label>Message <span>*</span></label>
+          <textarea class="message-input"></textarea>
+          <p class="hidden" id="message-mess">This field is required</p>
+        </div>
+        <div class="inputs consent">
+          <div class="consent-mess-main">
+            <input type="checkbox" id="consent" />
+            <label for="consent"
+              >I consent to being contacted by the team <span>*</span></label
+            >
+          </div>
+          <p class="hidden" id="consent-mess">
+            To submit this form, please consent to being contacted
+          </p>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </main>
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="https://github.com/pettik">Petr Bednarski</a>.
+    </footer>
+
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
