@@ -109,6 +109,7 @@ span {
 
 .inputs p {
   margin-top: 0.15rem;
+  color: var(--red);
 }
 
 .first-name-input,
