@@ -2,350 +2,357 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@200..800&display=swap');
 
 .karla-normal {
-  font-family: 'Karla', sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+	font-family: 'Karla', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
 }
 
 .karla-bold {
-  font-family: 'Karla', sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
+	font-family: 'Karla', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 700;
+	font-style: normal;
 }
 
 *,
 *::before,
 *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 :root {
-  --light-green: hsl(148, 38%, 91%);
-  --green: hsl(169, 82%, 27%);
-  --red: hsl(0, 66%, 56%);
-  --white: hsl(0, 0%, 100%);
-  --medium-grey: hsl(186, 15%, 59%);
-  --dark-grey: hsl(187, 24%, 22%);
+	--light-green: hsl(148, 38%, 91%);
+	--green: hsl(169, 82%, 27%);
+	--red: hsl(0, 66%, 56%);
+	--white: hsl(0, 0%, 100%);
+	--medium-grey: hsl(186, 15%, 59%);
+	--dark-grey: hsl(187, 24%, 22%);
 }
 
 /*=============== IMAGE TEMPLATE ===============*/
 .background-img-wrapper {
-  /* display:none; */
-  position: absolute;
-  top: -2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 375px;
-  height: 1138px;
-  margin: 0 auto;
-  z-index: -1;
+	/* display:none; */
+	position: absolute;
+	top: -2rem;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 375px;
+	height: 1138px;
+	margin: 0 auto;
+	z-index: -1;
 }
 
 .background-img {
-  width: 100%;
-  height: 100%;
-  background: url('../../design/mobile-design.jpg');
-  background-repeat: no-repeat;
-  background-size: contain;
+	width: 100%;
+	height: 100%;
+	background: url('../../design/mobile-design.jpg');
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
 /*=============== BASE ===============*/
 body {
-  position: relative;
-  font-family: 'Karla', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  background: var(--light-green);
+	position: relative;
+	font-family: 'Karla', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	background: var(--light-green);
 }
 
 .container {
-  background: var(--white);
-  max-width: 345px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  opacity: 0.6;
+	background: var(--white);
+	max-width: 345px;
+	margin: 2rem auto;
+	padding: 1.5rem;
+	border-radius: 1rem;
+	opacity: 0.6;
 }
 
 h1 {
-  letter-spacing: -0.5px;
-  margin-bottom: 1.9rem;
+	letter-spacing: -0.5px;
+	margin-bottom: 1.9rem;
 }
 
 .hidden {
-  visibility: hidden;
+	visibility: hidden;
 }
 
 /*=============== FORM ===============*/
 .inputs {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0.45rem;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 0.45rem;
 }
 
 .inputs:focus {
-  border: 1px solid var(--green);
+	border: 1px solid var(--green);
 }
 
 .inputs.email {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 .first-name label,
 .last-name label,
 .email label {
-  margin-bottom: 0.65rem;
+	margin-bottom: 0.65rem;
 }
 
 span {
-  color: green;
-  font-weight: bold;
-  margin: 0 0.5rem;
+	color: green;
+	font-weight: bold;
+	margin: 0 0.5rem;
 }
 
 .inputs p {
-  margin-top: 0.15rem;
-  color: var(--red);
+	margin-top: 0.15rem;
+	color: var(--red);
 }
 
 .first-name-input,
 .last-name-input,
 .email-input,
 .message-input {
-  border-radius: 0.5rem;
-  padding: 1rem 0.5rem;
-  outline: none;
-  border: 1px solid var(--medium-grey);
+	border-radius: 0.5rem;
+	padding: 1rem 0.5rem;
+	outline: none;
+	border: 1px solid var(--medium-grey);
 }
 
 .message-input {
-  height: 100px;
+	height: 100px;
 }
 
 .first-name-input:focus,
 .last-name-input:focus,
 .email-input:focus,
 .message-input:focus {
-  border-color: var(--green);
+	border-color: var(--green);
+}
+
+input.invalid,
+textarea.invalid {
+	border: 2px solid var(--red);
 }
 
 /* Radio buttons */
 .radio-group {
-  display: flex;
-  flex-direction: column;
-  margin-top: -0.75rem;
+	display: flex;
+	flex-direction: column;
+	margin-top: -0.75rem;
 }
 
-.radio-group > label {
-  margin-bottom: 1.1rem;
+.radio-group>label {
+	margin-bottom: 1.1rem;
 }
 
 .radio-option {
-  display: flex;
-  align-items: center;
-  padding: 0.5rem;
-  border: 1px solid var(--medium-grey);
-  border-radius: 0.5rem;
-  transition: border-color 0.3s, background-color 0.3s;
-  position: relative;
+	display: flex;
+	align-items: center;
+	padding: 0.5rem;
+	border: 1px solid var(--medium-grey);
+	border-radius: 0.5rem;
+	transition: border-color 0.3s, background-color 0.3s;
+	position: relative;
 }
 
 .radio-options-box {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
+	display: flex;
+	flex-direction: column;
+	row-gap: 1rem;
 }
 
 .radio-option input[type='radio'] {
-  position: absolute;
-  opacity: 0;
+	position: absolute;
+	opacity: 0;
 }
 
-.radio-option input[type='radio'] + label {
-  font-size: 1.12rem;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  padding-left: 1rem;
-  /* Space for the custom radio button */
+.radio-option input[type='radio']+label {
+	font-size: 1.12rem;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	padding-left: 1rem;
+	/* Space for the custom radio button */
 }
 
-.radio-option input[type='radio'] + label::before {
-  content: '';
-  display: inline-block;
-  width: 1.25rem;
-  height: 1.25rem;
-  border: 2px solid var(--green);
-  border-radius: 50%;
-  margin-right: 1rem;
-  box-sizing: border-box;
+.radio-option input[type='radio']+label::before {
+	content: '';
+	display: inline-block;
+	width: 1.25rem;
+	height: 1.25rem;
+	border: 2px solid var(--green);
+	border-radius: 50%;
+	margin-right: 1rem;
+	box-sizing: border-box;
 }
 
-.radio-option input[type='radio']:checked + label::before {
-  background-color: var(--green);
-  box-shadow: inset 0 0 0 0.25rem var(--white);
+.radio-option input[type='radio']:checked+label::before {
+	background-color: var(--green);
+	box-shadow: inset 0 0 0 0.25rem var(--white);
 }
 
 .radio-option label {
-  flex: 1;
-  cursor: pointer;
-  padding: 0.35rem 0;
+	flex: 1;
+	cursor: pointer;
+	padding: 0.35rem 0;
 }
 
 /* Inputs Message */
 .inputs.message {
-  margin-top: 0rem;
-  margin-bottom: 1rem;
+	margin-top: 0rem;
+	margin-bottom: 1rem;
 }
 
 .inputs.message label {
-  margin-bottom: 0.75rem;
+	margin-bottom: 0.75rem;
 }
 
 .inputs.message textarea {
-  height: 15rem;
+	height: 15rem;
 }
 
 .inputs.consent {
-  display: flex;
-  margin-bottom: 0.15rem;
+	display: flex;
+	margin-bottom: 0.15rem;
 }
 
 .consent-mess-main {
-  display: flex;
-  align-items: center;
-  column-gap: 1.25rem;
+	display: flex;
+	align-items: center;
+	column-gap: 1.25rem;
 }
 
 /* Zvětšení checkboxu */
 .consent-mess-main input[type='checkbox'] {
-  transform: scale(1.5);
-  /* Zvětší checkbox na 150% */
-  /* background-color: green; */
-  padding: 5px;
-  /* Přidá odsazení kolem textu */
-  margin-left: 0.5rem;
+	transform: scale(1.5);
+	/* Zvětší checkbox na 150% */
+	/* background-color: green; */
+	padding: 5px;
+	/* Přidá odsazení kolem textu */
+	margin-left: 0.5rem;
 }
 
 .consent-mess-main label {
-  line-height: 1.5;
+	line-height: 1.5;
 }
 
-#consent:checked + label::before {
-  background-color: green !important;
+#consent:checked+label::before {
+	background-color: green !important;
 }
 
 /*=============== BUTTON ===============*/
 button {
-  display: block;
-  width: 100%;
-  color: var(--white);
-  background-color: var(--green);
-  outline: none;
-  border: 0;
-  padding: 1rem;
-  font-size: 1.25rem;
-  border-radius: 0.75rem;
-  cursor: pointer;
+	display: block;
+	width: 100%;
+	color: var(--white);
+	background-color: var(--green);
+	outline: none;
+	border: 0;
+	padding: 1rem;
+	font-size: 1.25rem;
+	border-radius: 0.75rem;
+	cursor: pointer;
 }
 
 /*=============== FOOTER ===============*/
 .attribution {
-  display: none;
+	display: none;
 }
 
 /*=============== MEDIA QUERIES ===============*/
 @media screen and (min-width: 768px) {
-  .background-img-wrapper {
-    /* display:none; */
-    position: absolute;
-    top: -8rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 736px;
-    height: 900px;
-    margin: 0 auto;
-    z-index: -1;
-  }
+	.background-img-wrapper {
+		/* display:none; */
+		position: absolute;
+		top: -8rem;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 736px;
+		height: 900px;
+		margin: 0 auto;
+		z-index: -1;
+	}
 
-  .background-img {
-    width: 100%;
-    height: 100%;
-    background: url('../../design/desktop-design2.jpg');
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
+	.background-img {
+		width: 100%;
+		height: 100%;
+		background: url('../../design/desktop-design2.jpg');
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
 
-  .container {
-    margin-top: 8rem;
-    max-width: 736px;
-    padding: 2.5rem;
-  }
+	.container {
+		margin-top: 8rem;
+		max-width: 736px;
+		padding: 2.5rem;
+	}
 
-  .inputs {
-    flex-direction: column;
-  }
-  form {
-    display: grid;
-    column-gap: 1rem;
-    grid-template-columns: repeat(2, 1fr);
-  }
+	.inputs {
+		flex-direction: column;
+	}
 
-  .first-name,
-  .last-name {
-    margin-bottom: 1.2rem;
-  }
+	form {
+		display: grid;
+		column-gap: 1rem;
+		grid-template-columns: repeat(2, 1fr);
+	}
 
-  .inputs.email {
-    margin-top: -1rem;
-    grid-column: 1/-1;
-    margin-bottom: 1.2rem;
-  }
+	.first-name,
+	.last-name {
+		margin-bottom: 1.2rem;
+	}
 
-  /* RADIO BUTTONS */
-  .inputs.radio-group {
-    grid-column: 1/-1;
-    margin-bottom: 1.1rem;
-  }
+	.inputs.email {
+		margin-top: -1rem;
+		grid-column: 1/-1;
+		margin-bottom: 1.2rem;
+	}
 
-  .radio-options-box {
-    margin-top: 0.25rem;
-    display: flex;
-    flex-direction: row;
-    column-gap: 1rem;
-  }
+	/* RADIO BUTTONS */
+	.inputs.radio-group {
+		grid-column: 1/-1;
+		margin-bottom: 1.1rem;
+	}
 
-  .radio-option {
-    flex: 1;
-  }
+	.radio-options-box {
+		margin-top: 0.25rem;
+		display: flex;
+		flex-direction: row;
+		column-gap: 1rem;
+	}
 
-  /* Message area */
-  .inputs.message {
-    margin-top: -1rem;
-    grid-column: 1/-1;
-  }
-  .inputs.message textarea {
-    height: 6.5rem;
-  }
+	.radio-option {
+		flex: 1;
+	}
 
-  /* Checkbox message */
-  .consent {
-    grid-column: 1/-1;
-    margin-top: -1rem;
-    margin-top: 0.25rem;
-  }
+	/* Message area */
+	.inputs.message {
+		margin-top: -1rem;
+		grid-column: 1/-1;
+	}
 
-  .consent:hover,
-  .consent label:hover .consent-mess-main:hover {
-    cursor: pointer;
-  }
+	.inputs.message textarea {
+		height: 6.5rem;
+	}
 
-  button[type='submit'] {
-    margin-top: 1rem;
-    grid-column: 1/-1;
-  }
+	/* Checkbox message */
+	.consent {
+		grid-column: 1/-1;
+		margin-top: -1rem;
+		margin-top: 0.25rem;
+	}
+
+	.consent:hover,
+	.consent label:hover .consent-mess-main:hover {
+		cursor: pointer;
+	}
+
+	button[type='submit'] {
+		margin-top: 1rem;
+		grid-column: 1/-1;
+	}
 }
