@@ -200,6 +200,7 @@ textarea.invalid {
   cursor: pointer;
   padding: 0.35rem 0;
 }
+
 /* RADIO BUTTONS */
 .inputs.radio-group {
   margin-bottom: 0rem;
@@ -228,6 +229,7 @@ textarea.invalid {
   display: flex;
   align-items: center;
   column-gap: 1.25rem;
+  cursor: pointer;
 }
 
 /* Zvětšení checkboxu */
@@ -247,7 +249,43 @@ textarea.invalid {
 #consent:checked + label::before {
   background-color: green !important;
 }
+/* Styl pro zelený checkbox */
+input[type='checkbox'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+  display: inline-block;
+  position: relative;
+}
 
+input[type='checkbox']:checked {
+  background-color: var(--green);
+  border: 1px solid var(--green);
+}
+
+input[type='checkbox']:checked:after {
+  content: '\2713'; /* Unicode pro zaškrtnutí */
+  font-size: 8px;
+  position: absolute;
+  top: 0;
+  left: 1px;
+  color: white;
+}
+
+/* Doplňkový styl pro lepší vzhled checkboxu */
+input[type='checkbox'] {
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  border-radius: 0.15rem;
+}
+
+input[type='checkbox']:focus {
+  outline: none;
+}
 /*=============== BUTTON ===============*/
 button {
   display: block;
@@ -327,10 +365,6 @@ button {
     margin-top: -1rem;
   }
 
-  . .inputs.radio-group > label {
-    margin-bottom: 1rem;
-  }
-
   .radio-options-box {
     margin-top: 0.25rem;
     display: flex;
@@ -364,8 +398,8 @@ button {
     margin-top: 0.25rem;
   }
 
-  .consent:hover,
-  .consent label:hover .consent-mess-main:hover {
+  .consent,
+  .consent label .consent-mess-main {
     cursor: pointer;
   }
 
