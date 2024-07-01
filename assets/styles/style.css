@@ -34,7 +34,7 @@
 
 /*=============== IMAGE TEMPLATE ===============*/
 .background-img-wrapper {
-  /* display:none; */
+  display: none;
   position: absolute;
   top: -2rem;
   left: 50%;
@@ -68,7 +68,7 @@ body {
   margin: 2rem auto;
   padding: 1.5rem;
   border-radius: 1rem;
-  opacity: 0.6;
+  /* opacity: 0.6; */
 }
 
 h1 {
@@ -249,6 +249,7 @@ textarea.invalid {
 #consent:checked + label::before {
   background-color: green !important;
 }
+
 /* Styl pro zelený checkbox */
 input[type='checkbox'] {
   -webkit-appearance: none;
@@ -267,7 +268,8 @@ input[type='checkbox']:checked {
 }
 
 input[type='checkbox']:checked:after {
-  content: '\2713'; /* Unicode pro zaškrtnutí */
+  content: '\2713';
+  /* Unicode pro zaškrtnutí */
   font-size: 8px;
   position: absolute;
   top: 0;
@@ -286,6 +288,7 @@ input[type='checkbox'] {
 input[type='checkbox']:focus {
   outline: none;
 }
+
 /*=============== BUTTON ===============*/
 button {
   display: block;
@@ -308,7 +311,7 @@ button {
 /*=============== MEDIA QUERIES ===============*/
 @media screen and (min-width: 768px) {
   .background-img-wrapper {
-    /* display:none; */
+    display: none;
     position: absolute;
     top: -8rem;
     left: 50%;
