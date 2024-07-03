@@ -38,7 +38,7 @@ This challenge was a great opportunity for me to practice basic HTML and CSS tag
 ### Links
 
 - Solution URL: [GITHUB SOURCE](https://github.com/pettik/FrontendMentor--contact-form)
-<!-- - Live Site URL: [LIVE SITE 🌐](https://pettik-contact-form.netlify.app/) -->
+- Live Site URL: [LIVE SITE 🌐](https://pettik-contact-form.netlify.app/)
 
 ## Author
 
