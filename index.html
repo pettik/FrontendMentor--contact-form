@@ -46,15 +46,22 @@
           <p class="hidden" id="last-name-mess">This field is required</p>
         </div>
         <div class="inputs email">
-          <label for="email">Email Address<span>*</span></label>
+          <label for="email"
+            >Email Address <span aria-hidden="true">*</span></label
+          >
           <input
             id="email"
-            type="text"
+            type="email"
             class="email-input"
+            name="email"
+            autocomplete="email"
+            inputmode="email"
+            required
             aria-describedby="email-mess"
+            aria-required="true"
           />
           <p class="hidden" id="email-mess">
-            Please enter a valid email address | This field is required
+            Please enter a valid email address
           </p>
         </div>
         <div class="inputs radio-group">
