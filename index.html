@@ -27,17 +27,32 @@
       <form action="#">
         <div class="inputs first-name">
           <label for="first-name">First Name <span>*</span></label>
-          <input id="first-name" type="text" class="first-name-input" />
+          <input
+            id="first-name"
+            type="text"
+            class="first-name-input"
+            aria-describedby="first-name-mess"
+          />
           <p class="hidden" id="first-name-mess">This field is required</p>
         </div>
         <div class="inputs last-name">
           <label for="last-name">Last Name <span>*</span></label>
-          <input id="last-name" type="text" class="last-name-input" />
+          <input
+            id="last-name"
+            type="text"
+            class="last-name-input"
+            aria-describedby="last-name-mess"
+          />
           <p class="hidden" id="last-name-mess">This field is required</p>
         </div>
         <div class="inputs email">
           <label for="email">Email Address<span>*</span></label>
-          <input id="email" type="text" class="email-input" />
+          <input
+            id="email"
+            type="text"
+            class="email-input"
+            aria-describedby="email-mess"
+          />
           <p class="hidden" id="email-mess">
             Please enter a valid email address | This field is required
           </p>
@@ -68,7 +83,11 @@
         </div>
         <div class="inputs message">
           <label for="message">Message <span>*</span></label>
-          <textarea id="message" class="message-input"></textarea>
+          <textarea
+            id="message"
+            class="message-input"
+            aria-describedby="message-mess"
+          ></textarea>
           <p class="hidden" id="message-mess">This field is required</p>
         </div>
         <div class="inputs consent">
