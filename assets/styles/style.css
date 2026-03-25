@@ -93,10 +93,6 @@ h1 {
   margin-bottom: 0.45rem;
 }
 
-.inputs:focus {
-  border: 1px solid var(--green);
-}
-
 .inputs.email {
   margin-bottom: 0;
 }
@@ -243,10 +239,7 @@ textarea.invalid {
 /* Zvětšení checkboxu */
 .consent-mess-main input[type="checkbox"] {
   transform: scale(1.5);
-  /* Zvětší checkbox na 150% */
-  /* background-color: green; */
   padding: 5px;
-  /* Přidá odsazení kolem textu */
   margin-left: 0.5rem;
 }
 
@@ -258,7 +251,6 @@ textarea.invalid {
   background-color: green !important;
 }
 
-/* Styl pro zelený checkbox */
 input[type="checkbox"] {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -277,7 +269,7 @@ input[type="checkbox"]:checked {
 
 input[type="checkbox"]:checked:after {
   content: "\2713";
-  /* Unicode pro zaškrtnutí */
+
   font-size: 8px;
   position: absolute;
   top: 0;
@@ -285,7 +277,6 @@ input[type="checkbox"]:checked:after {
   color: white;
 }
 
-/* Doplňkový styl pro lepší vzhled checkboxu */
 input[type="checkbox"] {
   width: 10px;
   height: 10px;
