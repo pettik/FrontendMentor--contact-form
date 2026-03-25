@@ -34,6 +34,7 @@
             type="text"
             class="first-name-input"
             aria-describedby="first-name-mess"
+            required
           />
           <p class="hidden" id="first-name-mess">This field is required</p>
         </div>
@@ -46,6 +47,7 @@
             type="text"
             class="last-name-input"
             aria-describedby="last-name-mess"
+            required
           />
           <p class="hidden" id="last-name-mess">This field is required</p>
         </div>
@@ -105,12 +107,18 @@
             id="message"
             class="message-input"
             aria-describedby="message-mess"
+            required
           ></textarea>
           <p class="hidden" id="message-mess">This field is required</p>
         </div>
         <div class="inputs consent">
           <div class="consent-mess-main">
-            <input type="checkbox" id="consent" />
+            <input
+              type="checkbox"
+              id="consent"
+              required
+              aria-describedby="consent-mess"
+            />
             <label for="consent"
               >I consent to being contacted by the team
               <span aria-hidden="true">*</span></label
