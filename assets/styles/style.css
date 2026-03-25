@@ -1,15 +1,15 @@
 /*  Karla font */
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@200..800&display=swap");
 
 .karla-normal {
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
 
 .karla-bold {
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
@@ -32,6 +32,12 @@
   --dark-grey: hsl(187, 24%, 22%);
 }
 
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
 /*=============== IMAGE TEMPLATE ===============*/
 .background-img-wrapper {
   display: none;
@@ -48,7 +54,7 @@
 .background-img {
   width: 100%;
   height: 100%;
-  background: url('../../design/mobile-design.jpg');
+  background: url("../../design/mobile-design.jpg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -56,7 +62,7 @@
 /*=============== BASE ===============*/
 body {
   position: relative;
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
   font-weight: 400;
   font-style: normal;
   background: var(--light-green);
@@ -167,12 +173,12 @@ textarea.invalid {
   row-gap: 0.9rem;
 }
 
-.radio-option input[type='radio'] {
+.radio-option input[type="radio"] {
   position: absolute;
   opacity: 0;
 }
 
-.radio-option input[type='radio'] + label {
+.radio-option input[type="radio"] + label {
   font-size: 1.12rem;
   display: flex;
   align-items: center;
@@ -181,8 +187,8 @@ textarea.invalid {
   /* Space for the custom radio button */
 }
 
-.radio-option input[type='radio'] + label::before {
-  content: '';
+.radio-option input[type="radio"] + label::before {
+  content: "";
   display: inline-block;
   width: 1.25rem;
   height: 1.25rem;
@@ -192,7 +198,7 @@ textarea.invalid {
   box-sizing: border-box;
 }
 
-.radio-option input[type='radio']:checked + label::before {
+.radio-option input[type="radio"]:checked + label::before {
   background-color: var(--green);
   box-shadow: inset 0 0 0 0.25rem var(--white);
 }
@@ -235,7 +241,7 @@ textarea.invalid {
 }
 
 /* Zvětšení checkboxu */
-.consent-mess-main input[type='checkbox'] {
+.consent-mess-main input[type="checkbox"] {
   transform: scale(1.5);
   /* Zvětší checkbox na 150% */
   /* background-color: green; */
@@ -253,7 +259,7 @@ textarea.invalid {
 }
 
 /* Styl pro zelený checkbox */
-input[type='checkbox'] {
+input[type="checkbox"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -264,13 +270,13 @@ input[type='checkbox'] {
   position: relative;
 }
 
-input[type='checkbox']:checked {
+input[type="checkbox"]:checked {
   background-color: var(--green);
   border: 1px solid var(--green);
 }
 
-input[type='checkbox']:checked:after {
-  content: '\2713';
+input[type="checkbox"]:checked:after {
+  content: "\2713";
   /* Unicode pro zaškrtnutí */
   font-size: 8px;
   position: absolute;
@@ -280,14 +286,14 @@ input[type='checkbox']:checked:after {
 }
 
 /* Doplňkový styl pro lepší vzhled checkboxu */
-input[type='checkbox'] {
+input[type="checkbox"] {
   width: 10px;
   height: 10px;
   cursor: pointer;
   border-radius: 0.15rem;
 }
 
-input[type='checkbox']:focus {
+input[type="checkbox"]:focus {
   outline: none;
 }
 
@@ -327,7 +333,7 @@ button {
   .background-img {
     width: 100%;
     height: 100%;
-    background: url('../../design/desktop-design2.jpg');
+    background: url("../../design/desktop-design2.jpg");
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -408,7 +414,7 @@ button {
     cursor: pointer;
   }
 
-  button[type='submit'] {
+  button[type="submit"] {
     margin-top: 1rem;
     grid-column: 1/-1;
   }

@@ -26,7 +26,9 @@
       <h1>Contact Us</h1>
       <form action="#">
         <div class="inputs first-name">
-          <label for="first-name">First Name <span>*</span></label>
+          <label for="first-name"
+            >First Name <span aria-hidden="true">*</span></label
+          >
           <input
             id="first-name"
             type="text"
@@ -36,7 +38,9 @@
           <p class="hidden" id="first-name-mess">This field is required</p>
         </div>
         <div class="inputs last-name">
-          <label for="last-name">Last Name <span>*</span></label>
+          <label for="last-name"
+            >Last Name <span aria-hidden="true">*</span></label
+          >
           <input
             id="last-name"
             type="text"
@@ -64,8 +68,9 @@
             Please enter a valid email address
           </p>
         </div>
-        <div class="inputs radio-group">
-          <label>Query Type <span>*</span></label>
+        <fieldset class="inputs radio-group">
+          <legend>Query Type <span aria-hidden="true">*</span></legend>
+
           <div class="radio-options-box">
             <div class="radio-option">
               <input
@@ -73,23 +78,29 @@
                 id="general-enquiry"
                 name="query-type"
                 value="general-enquiry"
+                required
+                aria-describedby="query-type-mess"
               />
               <label for="general-enquiry">General Enquiry</label>
             </div>
+
             <div class="radio-option">
               <input
                 type="radio"
                 id="support-request"
                 name="query-type"
                 value="support-request"
+                required
+                aria-describedby="query-type-mess"
               />
               <label for="support-request">Support Request</label>
             </div>
           </div>
+
           <p class="hidden" id="query-type-mess">Please select a query type</p>
-        </div>
+        </fieldset>
         <div class="inputs message">
-          <label for="message">Message <span>*</span></label>
+          <label for="message">Message <span aria-hidden="true">*</span></label>
           <textarea
             id="message"
             class="message-input"
@@ -101,7 +112,8 @@
           <div class="consent-mess-main">
             <input type="checkbox" id="consent" />
             <label for="consent"
-              >I consent to being contacted by the team <span>*</span></label
+              >I consent to being contacted by the team
+              <span aria-hidden="true">*</span></label
             >
           </div>
           <p class="hidden" id="consent-mess">
