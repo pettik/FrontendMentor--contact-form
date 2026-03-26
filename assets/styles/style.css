@@ -308,12 +308,16 @@ button {
   width: 100%;
   color: var(--white);
   background-color: var(--green);
-  outline: none;
   border: 0;
   padding: 1rem;
   font-size: 1.25rem;
   border-radius: 0.75rem;
   cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 0.125rem solid var(--dark-grey);
+  outline-offset: 0.1875rem;
 }
 
 /*=============== FOOTER ===============*/
