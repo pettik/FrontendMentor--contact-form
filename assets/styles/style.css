@@ -39,17 +39,6 @@ fieldset {
 }
 
 /*=============== IMAGE TEMPLATE ===============*/
-/* .background-img-wrapper {
-  display: none;
-  position: absolute;
-  top: -2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 23.4375rem;
-  height: 71.125rem;
-  margin: 0 auto;
-  z-index: -1;
-} */
 
 .background-img {
   width: 100%;
@@ -258,8 +247,8 @@ textarea.invalid {
   line-height: 1.5;
 }
 
-#consent:checked + label::before {
-  background-color: green !important;
+.consent-mess-main #consent:checked + label::before {
+  background-color: var(--green);
 }
 
 input[type="checkbox"] {
@@ -327,18 +316,6 @@ button:focus-visible {
 
 /*=============== MEDIA QUERIES ===============*/
 @media screen and (min-width: 48rem) {
-  /* .background-img-wrapper {
-    display: block;
-    position: absolute;
-    top: -8rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 46rem;
-    height: 56.25rem;
-    margin: 0 auto;
-    z-index: -1;
-  } */
-
   .background-img {
     width: 100%;
     height: 100%;
