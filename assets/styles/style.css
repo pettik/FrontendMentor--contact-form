@@ -39,7 +39,7 @@ fieldset {
 }
 
 /*=============== IMAGE TEMPLATE ===============*/
-.background-img-wrapper {
+/* .background-img-wrapper {
   display: none;
   position: absolute;
   top: -2rem;
@@ -49,7 +49,7 @@ fieldset {
   height: 71.125rem;
   margin: 0 auto;
   z-index: -1;
-}
+} */
 
 .background-img {
   width: 100%;
@@ -327,8 +327,8 @@ button:focus-visible {
 
 /*=============== MEDIA QUERIES ===============*/
 @media screen and (min-width: 48rem) {
-  .background-img-wrapper {
-    display: none;
+  /* .background-img-wrapper {
+    display: block;
     position: absolute;
     top: -8rem;
     left: 50%;
@@ -337,7 +337,7 @@ button:focus-visible {
     height: 56.25rem;
     margin: 0 auto;
     z-index: -1;
-  }
+  } */
 
   .background-img {
     width: 100%;
