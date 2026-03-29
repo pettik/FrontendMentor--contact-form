@@ -16,18 +16,32 @@ document.querySelector('form').addEventListener('submit', function (event) {
   let isValid = true;
 
   // Function to show message
-  function showMessage(element, message) {
-    const messageElement = document.getElementById(message);
+  function showMessage(element, messageId) {
+    const messageElement = document.getElementById(messageId);
+
+    if (!messageElement) {
+      console.warn('Missing element with id:', messageId);
+      return;
+    }
+
     messageElement.classList.remove('hidden');
+
     if (element) {
       element.classList.add('invalid');
     }
   }
 
   // Function to hide message
-  function hideMessage(element, message) {
-    const messageElement = document.getElementById(message);
+  function hideMessage(element, messageId) {
+    const messageElement = document.getElementById(messageId);
+
+    if (!messageElement) {
+      console.warn('Missing element with id:', messageId);
+      return;
+    }
+
     messageElement.classList.add('hidden');
+
     if (element) {
       element.classList.remove('invalid');
     }
