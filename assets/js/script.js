@@ -1,16 +1,17 @@
-document.querySelectorAll('input[type="radio"]').forEach(radio => {
-  radio.addEventListener('change', function () {
-    document.querySelectorAll('.radio-option').forEach(option => {
-      option.style.backgroundColor = ''; // Reset background color for all
+document.querySelectorAll('input[type="radio"]').forEach((radio) => {
+  console.log(radio);
+  radio.addEventListener("change", function () {
+    document.querySelectorAll(".radio-option").forEach((option) => {
+      option.style.backgroundColor = ""; // Reset background color for all
     });
     if (radio.checked) {
-      radio.closest('.radio-option').style.backgroundColor =
-        'var(--light-green)';
+      radio.closest(".radio-option").style.backgroundColor =
+        "var(--light-green)";
     }
   });
 });
 
-document.querySelector('form').addEventListener('submit', function (event) {
+document.querySelector("form").addEventListener("submit", function (event) {
   event.preventDefault();
 
   let isValid = true;
@@ -20,14 +21,14 @@ document.querySelector('form').addEventListener('submit', function (event) {
     const messageElement = document.getElementById(messageId);
 
     if (!messageElement) {
-      console.warn('Missing element with id:', messageId);
+      console.warn("Missing element with id:", messageId);
       return;
     }
 
-    messageElement.classList.remove('hidden');
+    messageElement.classList.remove("hidden");
 
     if (element) {
-      element.classList.add('invalid');
+      element.classList.add("invalid");
     }
   }
 
@@ -36,87 +37,109 @@ document.querySelector('form').addEventListener('submit', function (event) {
     const messageElement = document.getElementById(messageId);
 
     if (!messageElement) {
-      console.warn('Missing element with id:', messageId);
+      console.warn("Missing element with id:", messageId);
       return;
     }
 
-    messageElement.classList.add('hidden');
+    messageElement.classList.add("hidden");
 
     if (element) {
-      element.classList.remove('invalid');
+      element.classList.remove("invalid");
     }
   }
 
   // Check First Name
-  const firstNameInput = document.querySelector('.first-name-input');
-  if (firstNameInput.value.trim() === '') {
-    showMessage(firstNameInput, 'first-name-mess');
+  const firstNameInput = document.querySelector(".first-name-input");
+  if (firstNameInput.value.trim() === "") {
+    showMessage(firstNameInput, "first-name-mess");
     isValid = false;
   } else {
-    hideMessage(firstNameInput, 'first-name-mess');
+    hideMessage(firstNameInput, "first-name-mess");
   }
 
   // Check Last Name
-  const lastNameInput = document.querySelector('.last-name-input');
-  if (lastNameInput.value.trim() === '') {
-    showMessage(lastNameInput, 'last-name-mess');
+  const lastNameInput = document.querySelector(".last-name-input");
+  if (lastNameInput.value.trim() === "") {
+    showMessage(lastNameInput, "last-name-mess");
     isValid = false;
   } else {
-    hideMessage(lastNameInput, 'last-name-mess');
+    hideMessage(lastNameInput, "last-name-mess");
   }
 
   // Check Email
-  const emailInput = document.querySelector('.email-input');
+  const emailInput = document.querySelector(".email-input");
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (emailInput.value.trim() === '') {
-    showMessage(emailInput, 'email-mess');
-    document.getElementById('email-mess').innerText = 'This field is required';
+  if (emailInput.value.trim() === "") {
+    showMessage(emailInput, "email-mess");
+    document.getElementById("email-mess").innerText = "This field is required";
     isValid = false;
   } else if (!emailPattern.test(emailInput.value)) {
-    showMessage(emailInput, 'email-mess');
-    document.getElementById('email-mess').innerText =
-      'Please enter a valid email address';
+    showMessage(emailInput, "email-mess");
+    document.getElementById("email-mess").innerText =
+      "Please enter a valid email address";
     isValid = false;
   } else {
-    hideMessage(emailInput, 'email-mess');
+    hideMessage(emailInput, "email-mess");
   }
 
   // Check Query Type
   const queryTypeInputs = document.querySelectorAll('input[name="query-type"]');
   let queryTypeChecked = false;
-  queryTypeInputs.forEach(input => {
+  queryTypeInputs.forEach((input) => {
     if (input.checked) {
       queryTypeChecked = true;
     }
   });
   if (!queryTypeChecked) {
-    showMessage(null, 'query-type-mess');
+    showMessage(null, "query-type-mess");
     isValid = false;
   } else {
-    hideMessage(null, 'query-type-mess');
+    hideMessage(null, "query-type-mess");
   }
 
   // Check Message
-  const messageInput = document.querySelector('.message-input');
-  if (messageInput.value.trim() === '') {
-    showMessage(messageInput, 'message-mess');
+  const messageInput = document.querySelector(".message-input");
+  if (messageInput.value.trim() === "") {
+    showMessage(messageInput, "message-mess");
     isValid = false;
   } else {
-    hideMessage(messageInput, 'message-mess');
+    hideMessage(messageInput, "message-mess");
   }
 
   // Check Consent
-  const consentInput = document.getElementById('consent');
+  const consentInput = document.getElementById("consent");
   if (!consentInput.checked) {
-    showMessage(consentInput, 'consent-mess');
+    showMessage(consentInput, "consent-mess");
     isValid = false;
   } else {
-    hideMessage(consentInput, 'consent-mess');
+    hideMessage(consentInput, "consent-mess");
   }
 
   // If the form is valid, you can submit it here or show a success message
   if (isValid) {
-    alert('Form submitted successfully!');
+    alert("Form submitted successfully!");
     // form.submit(); // uncomment to actually submit the form
   }
 });
+
+const formStatus = document.getElementById("form-status");
+
+function announceStatus(message) {
+  if (!formStatus) return;
+
+  formStatus.textContent = "";
+  setTimeout(() => {
+    formStatus.textContent = message;
+  }, 10);
+}
+
+if (firstNameInput.value.trim() === "") {
+  showMessage(firstNameInput, "first-name-mess");
+  announceStatus("First Name: This field is required.");
+  isValid = false;
+}
+
+if (isValid) {
+  announceStatus("Form submitted successfully.");
+  alert("Form submitted successfully!");
+}

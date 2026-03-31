@@ -30,6 +30,12 @@
   <body>
     <main class="container">
       <h1>Contact Us</h1>
+      <div
+        id="form-status"
+        class="visually-hidden"
+        role="status"
+        aria-atomic="true"
+      ></div>
       <form action="#" method="post">
         <div class="inputs first-name">
           <label for="first-name"
@@ -70,9 +76,9 @@
             name="email"
             autocomplete="email"
             inputmode="email"
-            required
             aria-describedby="email-mess"
             aria-required="true"
+            required
           />
           <p class="hidden" id="email-mess">
             Please enter a valid email address
@@ -86,10 +92,10 @@
               <input
                 type="radio"
                 id="general-enquiry"
-                name="queryType"
+                name="query-type"
                 value="general-enquiry"
-                required
                 aria-describedby="query-type-mess"
+                required
               />
               <label for="general-enquiry">General Enquiry</label>
             </div>
@@ -98,10 +104,10 @@
               <input
                 type="radio"
                 id="support-request"
-                name="queryType"
                 name="query-type"
                 value="support-request"
                 aria-describedby="query-type-mess"
+                required
               />
               <label for="support-request">Support Request</label>
             </div>
