@@ -38,6 +38,7 @@
           <input
             id="first-name"
             type="text"
+            name="firstName"
             class="first-name-input"
             aria-describedby="first-name-mess"
             required
@@ -51,6 +52,7 @@
           <input
             id="last-name"
             type="text"
+            name="lastName"
             class="last-name-input"
             aria-describedby="last-name-mess"
             required
@@ -84,7 +86,7 @@
               <input
                 type="radio"
                 id="general-enquiry"
-                name="query-type"
+                name="queryType"
                 value="general-enquiry"
                 required
                 aria-describedby="query-type-mess"
@@ -96,6 +98,7 @@
               <input
                 type="radio"
                 id="support-request"
+                name="queryType"
                 name="query-type"
                 value="support-request"
                 aria-describedby="query-type-mess"
@@ -110,6 +113,7 @@
           <label for="message">Message <span aria-hidden="true">*</span></label>
           <textarea
             id="message"
+            name="message"
             class="message-input"
             aria-describedby="message-mess"
             required
@@ -121,6 +125,7 @@
             <input
               type="checkbox"
               id="consent"
+              name="consent"
               required
               aria-describedby="consent-mess"
             />
