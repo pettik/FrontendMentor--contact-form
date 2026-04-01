@@ -1,12 +1,12 @@
 .karla-normal {
-  font-family: "Karla", sans-serif;
+  font-family: 'Karla', sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
 
 .karla-bold {
-  font-family: "Karla", sans-serif;
+  font-family: 'Karla', sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
@@ -40,7 +40,7 @@ fieldset {
 .background-img {
   width: 100%;
   height: 100%;
-  background: url("../../design/mobile-design.jpg");
+  background: url('../../design/mobile-design.jpg');
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -48,7 +48,7 @@ fieldset {
 /*=============== BASE ===============*/
 body {
   position: relative;
-  font-family: "Karla", sans-serif;
+  font-family: 'Karla', sans-serif;
   font-weight: 400;
   font-style: normal;
   background: var(--light-green);
@@ -161,7 +161,7 @@ textarea.invalid {
   row-gap: 0.9rem;
 }
 
-.radio-option input[type="radio"] {
+.radio-option input[type='radio'] {
   position: absolute;
   opacity: 0;
 }
@@ -171,7 +171,7 @@ textarea.invalid {
   box-shadow: 0 0 0 0.1875rem rgba(0, 128, 96, 0.2);
 }
 
-.radio-option input[type="radio"] + label {
+.radio-option input[type='radio'] + label {
   font-size: 1.12rem;
   display: flex;
   align-items: center;
@@ -180,8 +180,8 @@ textarea.invalid {
   /* Space for the custom radio button */
 }
 
-.radio-option input[type="radio"] + label::before {
-  content: "";
+.radio-option input[type='radio'] + label::before {
+  content: '';
   display: inline-block;
   width: 1.25rem;
   height: 1.25rem;
@@ -191,7 +191,7 @@ textarea.invalid {
   box-sizing: border-box;
 }
 
-.radio-option input[type="radio"]:checked + label::before {
+.radio-option input[type='radio']:checked + label::before {
   background-color: var(--green);
   box-shadow: inset 0 0 0 0.25rem var(--white);
 }
@@ -218,7 +218,8 @@ textarea.invalid {
 }
 
 .inputs.message textarea {
-  height: 15rem;
+  min-height: 15rem;
+  height: auto;
 }
 
 .inputs.consent {
@@ -234,7 +235,7 @@ textarea.invalid {
 }
 
 /* Zvětšení checkboxu */
-.consent-mess-main input[type="checkbox"] {
+.consent-mess-main input[type='checkbox'] {
   transform: scale(1.5);
   padding: 0.3125rem;
   margin-left: 0.5rem;
@@ -248,7 +249,7 @@ textarea.invalid {
   background-color: var(--green);
 }
 
-input[type="checkbox"] {
+input[type='checkbox'] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -259,13 +260,13 @@ input[type="checkbox"] {
   position: relative;
 }
 
-input[type="checkbox"]:checked {
+input[type='checkbox']:checked {
   background-color: var(--green);
   border: 0.0625rem solid var(--green);
 }
 
-input[type="checkbox"]:checked:after {
-  content: "\2713";
+input[type='checkbox']:checked:after {
+  content: '\2713';
 
   font-size: 0.5rem;
   position: absolute;
@@ -274,7 +275,7 @@ input[type="checkbox"]:checked:after {
   color: white;
 }
 
-input[type="checkbox"] {
+input[type='checkbox'] {
   width: 0.625rem;
   height: 0.625rem;
   cursor: pointer;
@@ -282,7 +283,7 @@ input[type="checkbox"] {
   border: 0.0625rem solid var(--medium-grey);
 }
 
-input[type="checkbox"]:focus-visible {
+input[type='checkbox']:focus-visible {
   outline: none;
   box-shadow: 0 0 0 0.1875rem rgba(22, 199, 154, 0.3);
   border-color: var(--green);
@@ -316,7 +317,7 @@ button:focus-visible {
   .background-img {
     width: 100%;
     height: 100%;
-    background: url("../../design/desktop-design2.jpg");
+    background: url('../../design/desktop-design2.jpg');
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -396,7 +397,7 @@ button:focus-visible {
     cursor: pointer;
   }
 
-  button[type="submit"] {
+  button[type='submit'] {
     margin-top: 1rem;
     grid-column: 1/-1;
   }
