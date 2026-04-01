@@ -219,7 +219,8 @@ textarea.invalid {
 
 .inputs.message textarea {
   min-height: 15rem;
-  height: auto;
+  max-height: 50vh;
+  resize: vertical;
 }
 
 .inputs.consent {
