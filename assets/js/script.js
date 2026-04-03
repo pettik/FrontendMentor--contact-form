@@ -117,8 +117,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
 
   // If the form is valid, you can submit it here or show a success message
   if (isValid) {
-    alert('Form submitted successfully!');
-    // form.submit(); // uncomment to actually submit the form
+    announceStatus('Form submitted successfully!');
   }
 });
 
