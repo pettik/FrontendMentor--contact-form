@@ -255,10 +255,14 @@ input[type='checkbox'] {
   -moz-appearance: none;
   appearance: none;
   background-color: #fff;
-  border: 0.0625rem solid #ccc;
   padding: 0.3125rem;
   display: inline-block;
   position: relative;
+  width: 0.625rem;
+  height: 0.625rem;
+  cursor: pointer;
+  border-radius: 0.15rem;
+  border: 0.0625rem solid var(--medium-grey);
 }
 
 input[type='checkbox']:checked {
@@ -274,14 +278,6 @@ input[type='checkbox']:checked:after {
   top: 0;
   left: 0.0625rem;
   color: white;
-}
-
-input[type='checkbox'] {
-  width: 0.625rem;
-  height: 0.625rem;
-  cursor: pointer;
-  border-radius: 0.15rem;
-  border: 0.0625rem solid var(--medium-grey);
 }
 
 input[type='checkbox']:focus-visible {
