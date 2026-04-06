@@ -83,16 +83,16 @@ h1 {
   margin-bottom: 0;
 }
 
+.required-asterisk {
+  color: var(--green);
+  font-weight: 700;
+  margin: 0 0.5rem;
+}
+
 .first-name label,
 .last-name label,
 .email label {
   margin-bottom: 0.5rem;
-}
-
-span {
-  color: green;
-  font-weight: bold;
-  margin: 0 0.5rem;
 }
 
 .inputs p {
