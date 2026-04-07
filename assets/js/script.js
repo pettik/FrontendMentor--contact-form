@@ -52,7 +52,11 @@ if (form) {
 
     // Check First Name
     const firstNameInput = document.querySelector('.first-name-input');
-    if (firstNameInput.value.trim() === '') {
+
+    if (!firstNameInput) {
+      console.warn('Missing .first-name-input');
+      isValid = false;
+    } else if (firstNameInput.value.trim() === '') {
       showMessage(firstNameInput, 'first-name-mess');
       isValid = false;
     } else {
