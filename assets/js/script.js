@@ -75,10 +75,32 @@ if (form) {
       hideMessage(lastNameInput, 'last-name-mess');
     }
 
+<<<<<<< Updated upstream
     // Check Email
     const emailInput = document.querySelector('.email-input');
     const emailMessage = document.getElementById('email-mess');
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+=======
+  if (firstNameInput.value.trim() === "") {
+    showMessage(firstNameInput, "first-name-mess");
+    announceStatus("First Name: This field is required.");
+    isValid = false;
+  }
+
+  if (isValid) {
+    announceStatus("Form submitted successfully.");
+    alert("Form submitted successfully!");
+  }
+
+  // Check Last Name
+  const lastNameInput = document.querySelector(".last-name-input");
+  if (lastNameInput.value.trim() === "") {
+    showMessage(lastNameInput, "last-name-mess");
+    isValid = false;
+  } else {
+    hideMessage(lastNameInput, "last-name-mess");
+  }
+>>>>>>> Stashed changes
 
     if (!emailInput || !emailMessage) {
       console.warn('Missing email input or message element');
