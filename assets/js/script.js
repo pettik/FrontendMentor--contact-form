@@ -1,11 +1,17 @@
 document.querySelectorAll('input[type="radio"]').forEach(radio => {
   radio.addEventListener('change', function () {
     document.querySelectorAll('.radio-option').forEach(option => {
-      option.style.backgroundColor = ''; // Reset background color for all
+      option.style.backgroundColor = '';
     });
+
     if (radio.checked) {
-      radio.closest('.radio-option').style.backgroundColor =
-        'var(--light-green)';
+      const radioOption = radio.closest('.radio-option');
+
+      if (radioOption) {
+        radioOption.style.backgroundColor = 'var(--light-green)';
+      } else {
+        console.warn('Missing .radio-option parent for radio:', radio);
+      }
     }
   });
 });
@@ -138,10 +144,13 @@ if (form) {
     } else {
       hideMessage(consentInput, 'consent-mess');
     }
-
     if (isValid) {
       announceStatus('Form submitted successfully!');
       form.reset();
+
+      document.querySelectorAll('.radio-option').forEach(option => {
+        option.style.backgroundColor = '';
+      });
     }
   });
 } else {
