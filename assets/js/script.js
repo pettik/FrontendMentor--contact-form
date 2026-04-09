@@ -24,8 +24,7 @@ if (form) {
 
     let isValid = true;
 
-    // Function to show message
-    function showMessage(element, messageId) {
+    function showMessage(element, messageId, message) {
       const messageElement = document.getElementById(messageId);
 
       if (!messageElement) {
@@ -33,10 +32,13 @@ if (form) {
         return;
       }
 
+      messageElement.textContent = message;
       messageElement.classList.remove('hidden');
 
       if (element) {
         element.classList.add('invalid');
+        element.setAttribute('aria-invalid', 'true');
+        element.setAttribute('aria-describedby', messageId);
       }
     }
 
