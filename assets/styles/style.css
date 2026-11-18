@@ -23,6 +23,7 @@
 :root {
   --light-green: hsl(148, 38%, 91%);
   --green: hsl(169, 82%, 27%);
+  --dark-green: hsl(169, 82%, 17%);
   --red: hsl(0, 66%, 56%);
   --white: hsl(0, 0%, 100%);
   --medium-grey: hsl(186, 15%, 59%);
@@ -106,8 +107,8 @@ h1 {
 .message-input {
   border-radius: 0.5rem;
   padding: 1rem 0.5rem;
-  outline: none;
   border: 0.0625rem solid var(--medium-grey);
+  font: inherit;
 }
 
 .message-input {
@@ -119,6 +120,14 @@ h1 {
 .email-input:focus,
 .message-input:focus {
   border-color: var(--green);
+}
+
+.first-name-input:focus-visible,
+.last-name-input:focus-visible,
+.email-input:focus-visible,
+.message-input:focus-visible {
+  outline: 0.1875rem solid var(--dark-grey);
+  outline-offset: 0.1875rem;
 }
 
 input.invalid,
@@ -140,7 +149,7 @@ textarea.invalid {
 .radio-option {
   display: flex;
   align-items: center;
-  padding: 0.65rem;
+  padding: 0;
   border: 0.0625rem solid var(--medium-grey);
   border-radius: 0.5rem;
   transition:
@@ -168,7 +177,14 @@ textarea.invalid {
 
 .radio-option:focus-within {
   border-color: var(--green);
-  box-shadow: 0 0 0 0.1875rem rgba(0, 128, 96, 0.2);
+  outline: 0.1875rem solid var(--dark-grey);
+  outline-offset: 0.1875rem;
+}
+
+.radio-option:hover,
+.radio-option:has(input:checked) {
+  border-color: var(--green);
+  background-color: var(--light-green);
 }
 
 .radio-option input[type='radio'] + label {
@@ -176,7 +192,7 @@ textarea.invalid {
   display: flex;
   align-items: center;
   cursor: pointer;
-  padding-left: 1rem;
+  padding: 0.65rem 1.65rem;
   /* Space for the custom radio button */
 }
 
@@ -283,9 +299,14 @@ input[type='checkbox']:checked:after {
 }
 
 input[type='checkbox']:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 0.1875rem rgba(22, 199, 154, 0.3);
+  outline: 0.125rem solid var(--dark-grey);
+  outline-offset: 0.1875rem;
   border-color: var(--green);
+}
+
+.consent-mess-main:hover input[type='checkbox'] {
+  border-color: var(--green);
+  box-shadow: 0 0 0 0.125rem var(--light-green);
 }
 
 /*=============== BUTTON ===============*/
@@ -304,6 +325,24 @@ button {
 button:focus-visible {
   outline: 0.125rem solid var(--dark-grey);
   outline-offset: 0.1875rem;
+}
+
+button:hover {
+  background-color: var(--dark-green);
+}
+
+.form-status:not(:empty) {
+  position: fixed;
+  z-index: 1;
+  top: 1rem;
+  left: 50%;
+  width: max-content;
+  max-width: calc(100% - 2rem);
+  transform: translateX(-50%);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  color: var(--white);
+  background-color: var(--dark-grey);
 }
 
 /*=============== FOOTER ===============*/
@@ -369,10 +408,14 @@ button:focus-visible {
   .radio-option {
     flex: 1;
     max-height: 3.5rem;
-    padding: 0.8rem 0.5rem;
+    padding: 0;
 
     align-content: center;
     justify-content: center;
+  }
+
+  .radio-option input[type='radio'] + label {
+    padding: 0.8rem 1.5rem;
   }
 
   /* Message area */

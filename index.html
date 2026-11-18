@@ -32,11 +32,11 @@
       <h1>Contact Us</h1>
       <div
         id="form-status"
-        class="visually-hidden"
+        class="form-status"
         role="status"
         aria-atomic="true"
       ></div>
-      <form action="#" method="post">
+      <form action="#" method="post" novalidate>
         <div class="inputs first-name">
           <label for="first-name"
             >First Name
@@ -46,6 +46,7 @@
             id="first-name"
             type="text"
             name="firstName"
+            autocomplete="given-name"
             class="first-name-input"
             aria-describedby="first-name-mess"
             required
@@ -61,6 +62,7 @@
             id="last-name"
             type="text"
             name="lastName"
+            autocomplete="family-name"
             class="last-name-input"
             aria-describedby="last-name-mess"
             required

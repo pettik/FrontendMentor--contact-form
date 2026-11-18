@@ -1,0 +1,106 @@
+﻿<!doctype html>
+<meta charset="utf-8">
+<title>Contact form browser checks</title>
+<pre id="results">RUNNING</pre>
+<iframe id="page" src="/" width="1440" height="1200"></iframe>
+<script>
+const frame = document.getElementById('page');
+const output = document.getElementById('results');
+const checks = [];
+function check(condition, name) {
+  checks.push(`${condition ? 'PASS' : 'FAIL'} ${name}`);
+  if (!condition) throw new Error(name);
+}
+frame.addEventListener('load', async () => {
+  try {
+    const win = frame.contentWindow;
+    const doc = frame.contentDocument;
+    const form = doc.querySelector('form');
+    const get = id => doc.getElementById(id);
+    const errors = [...doc.querySelectorAll('.inputs p')];
+    const pause = () => new Promise(resolve => setTimeout(resolve, 50));
+    const input = (id, value) => {
+      get(id).value = value;
+      get(id).dispatchEvent(new win.Event('input', { bubbles: true }));
+    };
+    const choose = id => get(id).click();
+    const submit = async () => { form.requestSubmit(); await pause(); };
+    const fillValid = (radio = 'general-enquiry') => {
+      input('first-name', 'Ada');
+      input('last-name', 'Lovelace');
+      input('email', 'ada@example.com');
+      input('message', 'Please tell me more about the project.');
+      if (!get(radio).checked) choose(radio);
+      if (!get('consent').checked) choose('consent');
+    };
+    check(form.noValidate, 'custom validation receives native invalid submissions');
+    check([...form.querySelectorAll('[required]')].length === 7, 'required semantics remain on every control');
+    check([...form.querySelectorAll('input, textarea')].every(control => !control.hasAttribute('aria-describedby')), 'initial hidden errors are not announced as descriptions');
+    await submit();
+    check(errors.every(error => !error.classList.contains('hidden') && error.textContent.trim() && !error.textContent.includes('undefined')), 'empty submit displays six nonempty error messages');
+    check(doc.querySelectorAll('[aria-invalid="true"]').length === 7, 'invalid state includes both radios and consent');
+    check(doc.activeElement === get('first-name'), 'empty submit focuses first invalid field');
+    check(get('form-status').textContent.includes('Please correct'), 'invalid submit updates live status');
+    check(get('first-name').getAttribute('aria-describedby') === 'first-name-mess', 'invalid field references its message');
+    input('first-name', '   ');
+    input('last-name', '   ');
+    input('message', '\n  ');
+    await submit();
+    check(['first-name', 'last-name', 'message'].every(id => get(id).getAttribute('aria-invalid') === 'true'), 'whitespace-only names and message remain invalid');
+    input('first-name', 'Ada');
+    check(!get('first-name').hasAttribute('aria-invalid') && !get('first-name').hasAttribute('aria-describedby') && get('first-name-mess').classList.contains('hidden'), 'correcting a field clears error and accessibility state');
+    for (const email of ['invalid', 'person@', 'person@example', 'person@exa mple.com', 'person@example.com,other@example.com']) {
+      input('email', email);
+      await submit();
+      check(get('email-mess').textContent === 'Please enter a valid email address', `invalid email: ${email}`);
+    }
+    input('email', '');
+    await submit();
+    check(get('email-mess').textContent === 'This field is required', 'empty email has a required-field message');
+    fillValid();
+    check(!doc.querySelector('[aria-invalid="true"]'), 'correction clears invalid state from all fields');
+    await pause();
+    const checkedColor = win.getComputedStyle(get('general-enquiry').closest('.radio-option')).backgroundColor;
+    check(checkedColor !== 'rgba(0, 0, 0, 0)', 'selected radio has a CSS background');
+    await submit();
+    check(get('form-status').textContent.includes('Form completed successfully'), 'valid submit announces completion');
+    check(['first-name', 'last-name', 'email', 'message'].every(id => get(id).value === '') && !get('consent').checked && !get('general-enquiry').checked, 'successful submit resets all form controls');
+    check(errors.every(error => error.classList.contains('hidden')) && !doc.querySelector('[aria-invalid]'), 'successful submit leaves no stale errors');
+    await pause();
+    check(!get('general-enquiry').closest('.radio-option').hasAttribute('style'), 'radio selection needs no stale inline styles');
+    fillValid('support-request');
+    choose('consent');
+    await submit();
+    check(doc.activeElement === get('consent') && get('consent-mess').textContent.includes('consent'), 'missing consent focuses checkbox and preserves values');
+    check(get('email').value === 'ada@example.com', 'invalid submit retains entered values');
+    choose('consent');
+    await submit();
+    check(get('form-status').textContent.includes('Form completed successfully'), 'support request also submits successfully');
+    fillValid();
+    input('email', 'invalid');
+    await submit();
+    check(doc.activeElement === get('email'), 'malformed email focuses email field');
+    input('email', 'ada@example.com');
+    await submit();
+    check(get('form-status').textContent.includes('Form completed successfully'), 'email correction permits resubmission');
+    for (const width of [1440, 768, 375, 320]) {
+      frame.width = width;
+      await pause();
+      const root = doc.documentElement;
+      check(root.scrollWidth <= root.clientWidth, `no horizontal overflow at ${width}px`);
+      check([...doc.querySelectorAll('input, textarea, button')].every(control => {
+        const box = control.getBoundingClientRect();
+        return box.left >= 0 && box.right <= root.clientWidth;
+      }), `controls fit at ${width}px`);
+    }
+    const rules = [...doc.styleSheets].filter(sheet => sheet.href && sheet.href.includes('/assets/styles/')).flatMap(sheet => [...sheet.cssRules]);
+    check(rules.some(rule => rule.selectorText === 'button:hover'), 'button hover style exists');
+    check(rules.some(rule => rule.selectorText && rule.selectorText.includes('.radio-option:hover')), 'radio hover style exists');
+    output.dataset.result = 'passed';
+    output.textContent = `${checks.join('\n')}\n${checks.length} checks passed`;
+  } catch (error) {
+    output.dataset.result = 'failed';
+    output.textContent = `${checks.join('\n')}\nERROR ${error.stack}`;
+  }
+});
+</script>

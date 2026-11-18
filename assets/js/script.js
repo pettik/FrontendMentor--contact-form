@@ -1,171 +1,119 @@
-document.querySelectorAll('input[type="radio"]').forEach(radio => {
-  radio.addEventListener('change', function () {
-    document.querySelectorAll('.radio-option').forEach(option => {
-      option.style.backgroundColor = '';
-    });
+﻿const form = document.querySelector('form');
+const formStatus = document.getElementById('form-status');
+let statusTimeout;
 
-    if (radio.checked) {
-      const radioOption = radio.closest('.radio-option');
-
-      if (radioOption) {
-        radioOption.style.backgroundColor = 'var(--light-green)';
-      } else {
-        console.warn('Missing .radio-option parent for radio:', radio);
-      }
-    }
-  });
-});
-
-const form = document.querySelector('form');
-
-if (form) {
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    let isValid = true;
-
-    function showMessage(element, messageId, message) {
-      const messageElement = document.getElementById(messageId);
-
-      if (!messageElement) {
-        console.warn('Missing element with id:', messageId);
-        return;
-      }
-
-      messageElement.textContent = message;
-      messageElement.classList.remove('hidden');
-
-      if (element) {
-        element.classList.add('invalid');
-        element.setAttribute('aria-invalid', 'true');
-        element.setAttribute('aria-describedby', messageId);
-      }
-    }
-
-    // Function to hide message
-    function hideMessage(element, messageId) {
-      const messageElement = document.getElementById(messageId);
-
-      if (!messageElement) {
-        console.warn('Missing element with id:', messageId);
-        return;
-      }
-
-      messageElement.classList.add('hidden');
-
-      if (element) {
-        element.classList.remove('invalid');
-      }
-    }
-
-    // Check First Name
-    const firstNameInput = document.querySelector('.first-name-input');
-
-    if (!firstNameInput) {
-      console.warn('Missing .first-name-input');
-      isValid = false;
-    } else if (firstNameInput.value.trim() === '') {
-      showMessage(firstNameInput, 'first-name-mess');
-      isValid = false;
-    } else {
-      hideMessage(firstNameInput, 'first-name-mess');
-    }
-
-    // Check Last Name
-    const lastNameInput = document.querySelector('.last-name-input');
-    if (!lastNameInput) {
-      console.warn('Missing .last-name-input');
-      isValid = false;
-    } else if (lastNameInput.value.trim() === '') {
-      showMessage(lastNameInput, 'last-name-mess');
-      isValid = false;
-    } else {
-      hideMessage(lastNameInput, 'last-name-mess');
-    }
-
-    // Check Email
-    const emailInput = document.querySelector('.email-input');
-    const emailMessage = document.getElementById('email-mess');
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!emailInput || !emailMessage) {
-      console.warn('Missing email input or message element');
-      isValid = false;
-    } else if (emailInput.value.trim() === '') {
-      showMessage(emailInput, 'email-mess');
-      emailMessage.innerText = 'This field is required';
-      isValid = false;
-    } else if (!emailPattern.test(emailInput.value)) {
-      showMessage(emailInput, 'email-mess');
-      emailMessage.innerText = 'Please enter a valid email address';
-      isValid = false;
-    } else {
-      hideMessage(emailInput, 'email-mess');
-    }
-
-    // Check Query Type
-    const queryTypeInputs = document.querySelectorAll(
-      'input[name="query-type"]',
-    );
-    let queryTypeChecked = false;
-    queryTypeInputs.forEach(input => {
-      if (input.checked) {
-        queryTypeChecked = true;
-      }
-    });
-    if (!queryTypeChecked) {
-      showMessage(null, 'query-type-mess');
-      isValid = false;
-    } else {
-      hideMessage(null, 'query-type-mess');
-    }
-
-    // Check Message
-    const messageInput = document.querySelector('.message-input');
-
-    if (!messageInput) {
-      console.warn('Missing .message-input');
-      isValid = false;
-    } else if (messageInput.value.trim() === '') {
-      showMessage(messageInput, 'message-mess');
-      isValid = false;
-    } else {
-      hideMessage(messageInput, 'message-mess');
-    }
-
-    // Check Consent
-    // Check Consent
-    const consentInput = document.getElementById('consent');
-
-    if (!consentInput) {
-      console.warn('Missing #consent');
-      isValid = false;
-    } else if (!consentInput.checked) {
-      showMessage(consentInput, 'consent-mess');
-      isValid = false;
-    } else {
-      hideMessage(consentInput, 'consent-mess');
-    }
-    if (isValid) {
-      announceStatus('Form submitted successfully!');
-      form.reset();
-
-      document.querySelectorAll('.radio-option').forEach(option => {
-        option.style.backgroundColor = '';
-      });
-    }
-  });
-} else {
-  console.warn('Form element not found');
+function clearStatus() {
+  clearTimeout(statusTimeout);
+  formStatus.textContent = '';
 }
 
-const formStatus = document.getElementById('form-status');
-
 function announceStatus(message) {
-  if (!formStatus) return;
-
-  formStatus.textContent = '';
-  setTimeout(() => {
+  clearStatus();
+  // Updating the existing live region also announces repeated submissions.
+  statusTimeout = setTimeout(() => {
     formStatus.textContent = message;
   }, 10);
+}
+
+if (form && formStatus) {
+  const messages = {
+    required: 'This field is required',
+    email: 'Please enter a valid email address',
+    queryType: 'Please select a query type',
+    consent: 'To submit this form, please consent to being contacted',
+  };
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const fields = [
+    {
+      controls: [form.elements.namedItem('firstName')],
+      messageId: 'first-name-mess',
+      getError: ([input]) => input.value.trim() ? '' : messages.required,
+    },
+    {
+      controls: [form.elements.namedItem('lastName')],
+      messageId: 'last-name-mess',
+      getError: ([input]) => input.value.trim() ? '' : messages.required,
+    },
+    {
+      controls: [form.elements.namedItem('email')],
+      messageId: 'email-mess',
+      getError: ([input]) => {
+        const email = input.value.trim();
+        if (!email) return messages.required;
+        return emailPattern.test(email) && !input.validity.typeMismatch
+          ? ''
+          : messages.email;
+      },
+    },
+    {
+      controls: Array.from(form.querySelectorAll('input[name="query-type"]')),
+      messageId: 'query-type-mess',
+      getError: controls => controls.some(input => input.checked) ? '' : messages.queryType,
+    },
+    {
+      controls: [form.elements.namedItem('message')],
+      messageId: 'message-mess',
+      getError: ([input]) => input.value.trim() ? '' : messages.required,
+    },
+    {
+      controls: [form.elements.namedItem('consent')],
+      messageId: 'consent-mess',
+      getError: ([input]) => input.checked ? '' : messages.consent,
+    },
+  ];
+
+  function validateField(field) {
+    const message = field.getError(field.controls);
+    const messageElement = document.getElementById(field.messageId);
+
+    messageElement.textContent = message;
+    messageElement.classList.toggle('hidden', !message);
+
+    field.controls.forEach(input => {
+      input.classList.toggle('invalid', Boolean(message));
+      if (message) {
+        input.setAttribute('aria-invalid', 'true');
+        input.setAttribute('aria-describedby', field.messageId);
+      } else {
+        input.removeAttribute('aria-invalid');
+        input.removeAttribute('aria-describedby');
+      }
+    });
+
+    return !message;
+  }
+
+  fields.forEach(field => {
+    field.controls.forEach(input => {
+      // Hidden errors should not be read as descriptions before validation.
+      input.removeAttribute('aria-describedby');
+      const eventName = input.type === 'radio' || input.type === 'checkbox'
+        ? 'change'
+        : 'input';
+
+      input.addEventListener(eventName, () => {
+        clearStatus();
+        // Let users finish typing before showing a field's first error.
+        if (input.getAttribute('aria-invalid') === 'true') {
+          validateField(field);
+        }
+      });
+    });
+  });
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    clearStatus();
+
+    const invalidFields = fields.filter(field => !validateField(field));
+
+    if (invalidFields.length) {
+      invalidFields[0].controls[0].focus();
+      announceStatus('Please correct the highlighted fields and submit again.');
+      return;
+    }
+
+    form.reset();
+    announceStatus('Form completed successfully! Thanks for completing the form.');
+  });
 }
