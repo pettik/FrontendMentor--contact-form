@@ -1,6 +1,6 @@
-﻿# Frontend Mentor - Contact form
+# Frontend Mentor - Contact form
 
-A responsive contact form built for the [Frontend Mentor contact form challenge](https://www.frontendmentor.io/challenges/contact-form--G-hYlqKJj).
+A responsive contact form built for a Frontend Mentor challenge.
 
 ## Table of contents
 

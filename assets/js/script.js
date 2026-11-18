@@ -27,12 +27,12 @@ if (form && formStatus) {
     {
       controls: [form.elements.namedItem('firstName')],
       messageId: 'first-name-mess',
-      getError: ([input]) => input.value.trim() ? '' : messages.required,
+      getError: ([input]) => (input.value.trim() ? '' : messages.required),
     },
     {
       controls: [form.elements.namedItem('lastName')],
       messageId: 'last-name-mess',
-      getError: ([input]) => input.value.trim() ? '' : messages.required,
+      getError: ([input]) => (input.value.trim() ? '' : messages.required),
     },
     {
       controls: [form.elements.namedItem('email')],
@@ -48,17 +48,18 @@ if (form && formStatus) {
     {
       controls: Array.from(form.querySelectorAll('input[name="query-type"]')),
       messageId: 'query-type-mess',
-      getError: controls => controls.some(input => input.checked) ? '' : messages.queryType,
+      getError: controls =>
+        controls.some(input => input.checked) ? '' : messages.queryType,
     },
     {
       controls: [form.elements.namedItem('message')],
       messageId: 'message-mess',
-      getError: ([input]) => input.value.trim() ? '' : messages.required,
+      getError: ([input]) => (input.value.trim() ? '' : messages.required),
     },
     {
       controls: [form.elements.namedItem('consent')],
       messageId: 'consent-mess',
-      getError: ([input]) => input.checked ? '' : messages.consent,
+      getError: ([input]) => (input.checked ? '' : messages.consent),
     },
   ];
 
@@ -66,7 +67,9 @@ if (form && formStatus) {
     const message = field.getError(field.controls);
     const messageElement = document.getElementById(field.messageId);
 
-    messageElement.textContent = message;
+    if (message) {
+      messageElement.textContent = message;
+    }
     messageElement.classList.toggle('hidden', !message);
 
     field.controls.forEach(input => {
@@ -87,9 +90,10 @@ if (form && formStatus) {
     field.controls.forEach(input => {
       // Hidden errors should not be read as descriptions before validation.
       input.removeAttribute('aria-describedby');
-      const eventName = input.type === 'radio' || input.type === 'checkbox'
-        ? 'change'
-        : 'input';
+      const eventName =
+        input.type === 'radio' || input.type === 'checkbox'
+          ? 'change'
+          : 'input';
 
       input.addEventListener(eventName, () => {
         clearStatus();
@@ -114,6 +118,8 @@ if (form && formStatus) {
     }
 
     form.reset();
-    announceStatus('Form completed successfully! Thanks for completing the form.');
+    announceStatus(
+      'Form completed successfully! Thanks for completing the form.',
+    );
   });
 }

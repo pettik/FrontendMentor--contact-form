@@ -332,13 +332,7 @@ button:hover {
 }
 
 .form-status:not(:empty) {
-  position: fixed;
-  z-index: 1;
-  top: 1rem;
-  left: 50%;
-  width: max-content;
-  max-width: calc(100% - 2rem);
-  transform: translateX(-50%);
+  margin-bottom: 1.5rem;
   padding: 1rem;
   border-radius: 0.75rem;
   color: var(--white);
